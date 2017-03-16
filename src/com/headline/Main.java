@@ -1,8 +1,10 @@
 package com.headline;
 
+
 import org.omg.CORBA.PRIVATE_MEMBER;
 
-import java.lang.reflect.Array;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -180,6 +182,56 @@ public class Main {
         print(7, map);
     }
 
+    public static void demoException() {
+        try {
+            print(1, "hello");
+            int a = 2;
+            a = a / 0;
+            String b = null;
+            b.indexOf('a');
+        } catch (NullPointerException npe) {
+            print(3, "NPE");
+        } catch (Exception e) {
+            print(4, "Exception");
+        } finally {
+            //clean up
+            print(2, "finally");
+        }
+    }
+
+    public static void demoCommon() {
+        // salt uuid
+        Random random = new Random();
+        random.setSeed(1);
+        for (int i = 0; i < 4; i++) {
+            print(1, random.nextInt(100));
+            print(2, random.nextDouble());
+        }
+        List<Integer> array = Arrays.asList(new Integer[]{1, 2, 3, 4, 5});
+        print(3, array);
+        Collections.shuffle(array);
+        print(4, array);
+
+        Date date = new Date();
+        print(5, date);
+        print(6, date.getTime());
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        print(7, df.format(date));
+        print(8, DateFormat.getDateInstance(DateFormat.FULL).format(date));
+
+        print(9, UUID.randomUUID());
+        print(10, Math.max(1, 2));
+        print(11, Math.ceil(2.2));
+        print(12, Math.floor(2.5));
+        print(13, Math.log(2.7));
+    }
+
+    public static void demoClass() {
+        Animal animal = new Animal("Jim", 1);
+        animal.say();
+        animal = new Human("Lei", 11, "CN");
+        animal.say();
+    }
 
     public static void main(String[] args) {
         //write
@@ -190,6 +242,9 @@ public class Main {
         //demoString();
         //demoList();
         //demoSet();
-        demoKeyValue();
+        //demoKeyValue();
+        //demoException();
+        //demoCommon();
+        demoClass();
     }
 }
