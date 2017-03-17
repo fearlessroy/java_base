@@ -1,7 +1,5 @@
-package com.headline;
+package com.base;
 
-
-import org.omg.CORBA.PRIVATE_MEMBER;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
