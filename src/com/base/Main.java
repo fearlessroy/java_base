@@ -10,6 +10,7 @@ import java.util.*;
  */
 public class Main {
     /**
+     * 打印对象
      * @param index
      * @param obj
      */
@@ -235,7 +236,7 @@ public class Main {
         //write
         //System.out.println("hello java");
         //print(1, "hello java");
-        //demoOperation();
+        demoOperation();
         //demoControFlow();
         //demoString();
         //demoList();
@@ -243,6 +244,6 @@ public class Main {
         //demoKeyValue();
         //demoException();
         //demoCommon();
-        demoClass();
+        //demoClass();
     }
 }
